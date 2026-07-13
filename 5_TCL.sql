@@ -79,6 +79,7 @@ commit 				;												-- then transaction closed
 drop table accounts;
 
 -- SQL Constrains
+-- unique,not null,check,
 
 create table accounts(
 			account_no int not null unique,

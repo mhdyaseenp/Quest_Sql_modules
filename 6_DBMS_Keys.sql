@@ -10,6 +10,9 @@ select * from students;
 
 insert into students(id,s_name, email,address,phone) values(202,'Yaseen','yaseen12@gamail.com','Areecode',9223798770);
 
+-- primary key
+
+
 -- to set auto incriment on id
 alter table students modify id int auto_increment;
 
@@ -31,9 +34,39 @@ insert into students(id,s_name, email,address,phone) values(202,'Yaseen','yaseen
                     
 select * from students;
 
+-- to remove primary key 
+alter table students drop primary key;
+
 -- to show the definaton of the table 
 desc students;
 describe students;												-- both are same
+
+
+-- -------------------------------------------------------------------------------------------------
+
+
+
+-- foregn key
+
+
+-- -------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
