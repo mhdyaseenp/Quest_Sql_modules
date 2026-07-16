@@ -78,17 +78,71 @@ alter table employees rename to company_employees;
 select * from company_employees;
 
 
+drop table company_employees;
+set sql_safe_updates =0;
 
 
 
+
+
+
+-- chenged the table to how they show in the above
 -- DML
+
+-- --------------------------------------
 -- Increase the salary of all IT employees by 10%.
+select *,salary * 1.10 as increase_salary from employees where department ='it';
+
 -- Reduce the salary of Sales employees by 5%.
+select *,salary * .95 as decrese_salary from employees where department ='sales';
+
 -- Update the city to Calicut for employees whose experience is greater than 5 years.
+update employees set city='Calicut' where experience>5;
+
+UPDATE employees SET city = 'Calicut' WHERE experience > 5;
+select*from employees;
+
 -- Change the designation to Senior Developer for all Developers earning more than ₹60,000.
+UPDATE employees SET designation = 'Senior Developer' WHERE salary > 60000;
+select * from employees;
+
 -- Delete employees who joined before 2019-01-01.
+delete from employees where joining_date < '2019-01-01';
+select * from employees;
+
 -- Delete employees from the HR department whose experience is less than 3 years.
+delete from employees where department='hr' and experience <3;
+select * from employees;
+
 -- Increase the experience by 1 year for employees who joined before 2022.
+update employees set experience= experience + 1 where joining_date < '2022-01-01';
+select *,experience + 1 as updated_experience from employees where joining_date < '2022-01-01';
+select * from employees;
 
 
 
+drop table employees;
+set sql_safe_updates =0;
+
+
+
+
+
+-- chenged the table to how they show in the above
+-- DQL + Operators
+-- ------------------------------------
+
+
+-- Display employees earning between ₹45,000 and ₹70,000 who belong to the IT department.
+
+
+
+-- Display employees from Kochi or Bangalore whose salary is above ₹50,000.
+-- Display female employees whose experience is greater than 4 years.
+-- Display employees who are not Developers.
+-- Display employees whose salary is not between ₹40,000 and ₹60,000.
+-- Display employees from Delhi, Mumbai, or Kochi.
+-- Display employees whose experience is exactly 2, 4, or 6 years.
+-- Display employees who joined after 2021-01-01 and whose salary is less than ₹60,000.
+-- Display employees whose department is not IT and salary is greater than ₹50,000.
+-- Display employees whose salary is greater than ₹50,000 but less than ₹80,000.
