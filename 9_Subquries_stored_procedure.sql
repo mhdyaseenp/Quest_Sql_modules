@@ -102,7 +102,17 @@ select @max_sal;
    -- ________________
 -- -- Stored Procedure --
 	-- -------------
-c
+
+delimiter //
+create procedure show3_employees() 
+begin
+	select * from employees;
+end //
+delimiter ;
+
+call show3_employees();
+
+
 
 -- get it employees details
 delimiter //
@@ -159,8 +169,6 @@ delimiter ;
 
 call add_prced(10,20);
 
-
-
 delimiter //
 create procedure sqr_prced(inout num int)
 begin
@@ -171,22 +179,10 @@ delimiter ;
 set @value= 20;
 call sqr_prced(@value);													-- 400
 
+
 select @value;
 
 
-
-
-delimiter //
-create procedure sum_3_prduct(in num1 int,in num2 int ,out result int)
-begin
-	set result=num1+num2;
-end //
-delimiter ;
-
-set @value= 20;
-
-call sum_3_prduct(20,30,@sum);													-- 50
-select @sum;
 
 
 

@@ -80,9 +80,13 @@ select * from employees where emp_name between 'a' and 'j';
 select * from employees where department like 'sales';
 
 
+
+-- ----------------------------------
+
+
 -- whild cards %(percentage) and _ (undersore)
 -- % - Represents zero, one, or many characters
--- _ - Represents exactly one character
+-- -- Represents exactly one character
 
 -- get the details of employee whoes name start with a
 select * from employees where emp_name like 'a%';

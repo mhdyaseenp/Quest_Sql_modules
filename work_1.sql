@@ -134,15 +134,127 @@ set sql_safe_updates =0;
 
 
 -- Display employees earning between ₹45,000 and ₹70,000 who belong to the IT department.
-
+select * from employees where salary between 45000 and 70000 and department ='it';
 
 
 -- Display employees from Kochi or Bangalore whose salary is above ₹50,000.
+select * from employees where (city= 'Kochi' or city= 'Bangalore') and salary>50000;
+
+
 -- Display female employees whose experience is greater than 4 years.
+select * from employees where gender='female' and experience>4;
+
+
 -- Display employees who are not Developers.
+select * from employees where designation <> 'developer';
+
+
 -- Display employees whose salary is not between ₹40,000 and ₹60,000.
+select * from employees where salary not between 40000 and 60000 ;
+
+
 -- Display employees from Delhi, Mumbai, or Kochi.
+select * from employees where city= 'Mumbai' or  city= 'Kochi' ;
+
+
 -- Display employees whose experience is exactly 2, 4, or 6 years.
+select * from employees where experience=2 or
+							  experience=4 or
+                              experience=6 ;
+
+
 -- Display employees who joined after 2021-01-01 and whose salary is less than ₹60,000.
+select * from employees where joining_date>'2021-01-01';
+
+
 -- Display employees whose department is not IT and salary is greater than ₹50,000.
+select * from employees where department <> 'it' and salary>50000;
+
+
 -- Display employees whose salary is greater than ₹50,000 but less than ₹80,000.
+select * from employees where salary between 50000 and 80000 ;
+
+
+
+
+
+-- Wildcards--
+-- ------------------------------------------
+
+
+-- 1. Find employees whose names start with M and end with h.
+select * from employees where emp_name like 'm%h';
+
+
+-- 2. Find employees whose names contain ra anywhere.
+select * from employees where emp_name like '%ra%';
+
+
+-- 3. Find employees whose names have exactly 6 characters.
+select * from employees where emp_name like '__________';
+
+
+-- 4. Find employees whose second letter is n.
+select * from employees where emp_name like '_n%';
+
+
+-- 5. Find employees whose city starts with C.
+select * from employees where city like 'c%';
+
+
+-- 6. Find employees whose department ends with s.
+select * from employees where department like '%s';
+
+
+-- 7. Find employees whose designation contains the word Manager.
+select * from employees where designation like '%Manager%';
+
+
+-- 8. Find employees whose names do not start with R.
+select * from employees where emp_name not like 'R%';
+
+
+-- 9. Find employees whose names contain at least two occurrences of the letter a.
+select * from employees where emp_name  like '%a%a%';
+
+
+-- 10. Find employees whose names end with a and whose salary is above ₹50,000.
+select * from employees where emp_name  like '%a' and salary >50000;
+
+
+
+
+
+
+
+
+-- Combined Questions (Good Practice)
+-- Display all female employees from Kochi whose salary is above ₹45,000 and experience is more than 3 years.
+
+
+-- Increase the salary by ₹3,000 for all employees from Bangalore working in the IT department.
+-- Delete employees from Sales whose salary is less than ₹40,000.
+-- Display employees whose names start with S or P and whose designation contains the word Executive.
+-- Display employees from IT or Finance whose experience is between 3 and 7 years.
+-- Update the city to Trivandrum for employees whose names start with A.
+-- Display employees who joined between 2020-01-01 and 2022-12-31.
+-- Display employees whose names contain ar but do not belong to the HR department.
+-- Delete employees who have less than 2 years of experience and earn less than ₹40,000.
+-- Display employees whose salary is greater than ₹50,000 and whose names contain the letter e.
+-- Increase the salary by 5% for employees whose designation contains Manager.
+-- Display employees whose city is neither Kochi nor Bangalore.
+-- Display employees whose names start with A, P, or S and whose salary is greater than ₹45,000.
+-- Update all female employees in the HR department to have the designation HR Specialist.
+-- Delete employees whose names end with y and experience is less than 5 years.
+-- Display all employees except those whose city starts with D.
+
+
+
+
+
+
+
+
+
+
+

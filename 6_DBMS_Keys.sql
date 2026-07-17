@@ -48,6 +48,54 @@ describe students;												-- both are same
 
 -- foregn key
 
+create table student (
+id int not null unique auto_increment ,
+d_id int,
+s_name char(50) not null ,
+email char(60) not null unique ,
+addres text not null ,
+phone bigint not null ,
+
+foreign key (d_id) 
+references departmets (departmet_id) 
+on update cascade
+on delete cascade
+) ;
+
+drop table student ;
+
+create table departmets (
+departmet_id int primary key ,
+departmet_name varchar (50)
+) ;
+
+drop table departmets ;
+
+select * from student ;
+select * from departmets ;
+
+insert into student values (20006 , 2 , "shabin" , "shabin@gmail.com" , "shabin home" , 9876543210 ) ;
+insert into student (d_id , s_name , email , addres ,phone) values ( 1, "richu" , "richu@gmail.com" , "richu home" , 9876543550 ) ;
+insert into student (d_id , s_name , email , addres ,phone) values 
+( 3, "shahal" , "shaha@gmail.com" , "shaha home" , 9876853550 ),
+( 2, "najad" , "najad@gmail.com" , "najad home" , 9876588550 ),
+( 1, "aju" , "aju@gmail.com" , "aju home" , 9556543550 ),
+( 2, "fasil" , "fasil@gmail.com" , "fasil home" , 9876543550 )
+ ;
+ 
+
+insert into departmets value (1,"hr"),(2,"it"),(3,"finance");
+
+update departmets set departmet_id = 101
+where departmet_id = 1 ;
+
+delete from departmets where departmet_id = 2 ;
+
+show create table student ;
+
+
+
+alter table student drop foreign key student_ibfk_1 ;
 
 -- -------------------------------------------------------------------------------------------------
 
